@@ -1,5 +1,5 @@
 # EvoRGCN
-“Evolution-Driven Randomized Graph Convolutional Networks”, Under review by TSMCA
+Z. Zhang, Y. Cai, and W. Gong, "Evolution-driven randomized graph convolutional networks", IEEE Transactions on Systems, Man, and Cybernetics: Systems. 2022.
 
 ## Requirement ##
 
