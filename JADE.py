@@ -171,7 +171,7 @@ def novelty_search(set_A, set_B, n_novelty, n_neighbors):
     if set_A.shape[0] < n_neighbors:
         if set_A.shape[0] == 0:
             set_A = set_B
-    set_A = np.append(set_A, set_B, axis=0)
+        set_A = np.append(set_A, set_B, axis=0)
     dis = pairwise_distances(set_B, set_A)
     sorted_indx = np.argsort(dis, axis=1)
     topk_indx = sorted_indx[:, :n_neighbors]
