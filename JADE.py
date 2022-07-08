@@ -171,16 +171,16 @@ def novelty_search(set_A, set_B, n_novelty, n_neighbors):
     if set_A.shape[0] < n_neighbors:
         if set_A.shape[0] == 0:
             set_A = set_B
-        set_A = np.append(set_A, set_B, axis=0)
-        dis = pairwise_distances(set_B, set_A)
-        sorted_indx = np.argsort(dis, axis=1)
-        topk_indx = sorted_indx[:, :n_neighbors]
-        x_indx = np.tile(np.arange(dis.shape[0]), (1, n_neighbors)).reshape((n_neighbors, dis.shape[0])).transpose()
-        ij_indx = (x_indx, topk_indx)
-        topk_dis = dis[ij_indx]
-        avg_dis = np.mean(topk_dis, axis=1)
-        replaced_indx = np.argsort(avg_dis)[-n_novelty:]
-        return replaced_indx
+    set_A = np.append(set_A, set_B, axis=0)
+    dis = pairwise_distances(set_B, set_A)
+    sorted_indx = np.argsort(dis, axis=1)
+    topk_indx = sorted_indx[:, :n_neighbors]
+    x_indx = np.tile(np.arange(dis.shape[0]), (1, n_neighbors)).reshape((n_neighbors, dis.shape[0])).transpose()
+    ij_indx = (x_indx, topk_indx)
+    topk_dis = dis[ij_indx]
+    avg_dis = np.mean(topk_dis, axis=1)
+    replaced_indx = np.argsort(avg_dis)[-n_novelty:]
+    return replaced_indx
 
 
 # if __name__ == '__main__':
